@@ -1,0 +1,29 @@
+# 1. Ignore everything in root by default
+/*
+
+# 2. Whitelist repo meta files
+!/.gitignore
+!/README.md
+
+# 3. Whitelist target disciplines of 7th semester
+!/УБС/
+!/МСУ/
+!/ННТвЗУ нейронечеткие/
+
+# 4. Whitelist ТАУ: traverse ТАУ, ignore older semesters, allow СЕМ7 ТАУ2
+!/ТАУ/
+/ТАУ/*
+!/ТАУ/СЕМ7 ТАУ2/
+
+# 5. Ignore temporary and junk files
+~$*
+*.tmp
+__pycache__/
+*.py[cod]
+*$py.class
+*.bak
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
