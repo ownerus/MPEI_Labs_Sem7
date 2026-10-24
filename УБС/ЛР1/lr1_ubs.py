@@ -204,7 +204,23 @@ class UBSApp(QMainWindow):
         tab_mat = QWidget()
         lay_mat = QVBoxLayout(tab_mat)
         lay_mat.addWidget(QLabel("Матрица смежности и цен графа (0 — отсутствие дуги, число > 0 — вес дуги):"))
+        tbl_style = (
+            "QTableWidget { "
+            "background-color: #FFFFFF; "
+            "color: #212121; "
+            "gridline-color: #CFD8DC; "
+            "font-family: Consolas, monospace; "
+            "font-size: 11pt; "
+            "} "
+            "QHeaderView::section { "
+            "background-color: #ECEFF1; "
+            "color: #37474F; "
+            "font-weight: bold; "
+            "border: 1px solid #CFD8DC; "
+            "}"
+        )
         self.tbl_input = QTableWidget()
+        self.tbl_input.setStyleSheet(tbl_style)
         lay_mat.addWidget(self.tbl_input)
         self.tabs.addTab(tab_mat, "1. Исходная матрица цен")
 
@@ -220,6 +236,7 @@ class UBSApp(QMainWindow):
 
         lay_lev.addWidget(QLabel("Упорядоченная верхнетреугольная матрица смежности/цен (a_ij = 0 при i >= j):"))
         self.tbl_ordered = QTableWidget()
+        self.tbl_ordered.setStyleSheet(tbl_style)
         lay_lev.addWidget(self.tbl_ordered)
         self.tabs.addTab(tab_lev, "2. Упорядочение по уровням")
 
@@ -295,6 +312,14 @@ class UBSApp(QMainWindow):
                 item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
                 if i == j:
                     item.setBackground(QColor("#ECEFF1"))
+                    item.setForeground(QColor("#78909C"))
+                elif val > 0:
+                    item.setForeground(QColor("#0D47A1"))
+                    font = item.font()
+                    font.setBold(True)
+                    item.setFont(font)
+                else:
+                    item.setForeground(QColor("#212121"))
                 self.tbl_input.setItem(i, j, item)
 
     def _read_input_table(self):
@@ -358,9 +383,16 @@ class UBSApp(QMainWindow):
                 item = QTableWidgetItem(str(w) if w > 0 else "0" if i == j else "")
                 item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
                 if w > 0:
-                    item.setBackground(QColor("#FFF9C4"))
+                    item.setBackground(QColor("#FFF59D"))
+                    item.setForeground(QColor("#B71C1C"))
+                    font = item.font()
+                    font.setBold(True)
+                    item.setFont(font)
                 elif i >= j:
                     item.setBackground(QColor("#F5F5F5"))
+                    item.setForeground(QColor("#9E9E9E"))
+                else:
+                    item.setForeground(QColor("#212121"))
                 self.tbl_ordered.setItem(i, j, item)
 
         # Расчет минимального пути
