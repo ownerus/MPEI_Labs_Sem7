@@ -1,7 +1,8 @@
 """
-Лабораторная работа №1 по дисциплине УБС.
+Лабораторная работа №1 по дисциплине «Управление большими системами» (УБС).
 Тема: Структурный анализ больших систем управления.
-Бригада: Грудинин, Турханов А.К. (Вариант 3)
+Бригада: Грудинин Е.К., Турханов А.К. (Вариант 3)
+Графический интерфейс на базе библиотеки PyQt6.
 """
 
 import sys
@@ -15,15 +16,16 @@ from PyQt6.QtGui import QFont, QColor
 
 
 def get_variant_3():
+    """Формирует матрицу смежности и цен графа для Варианта 3 (17 вершин)."""
     n = 17
     mat = [[0] * n for _ in range(n)]
     # Базовые дуги (1-based: u, v, w)
     base_edges = [
-        (1, 9, 2), (2, 17, 2), (3, 5, 4), (3, 7, 5), (3, 11, 3),
-        (4, 9, 2), (5, 4, 3), (5, 6, 4), (6, 12, 3), (7, 1, 2),
-        (7, 4, 2), (8, 14, 2), (9, 16, 3), (10, 15, 1), (11, 1, 3),
-        (11, 2, 4), (12, 16, 2), (13, 15, 2), (14, 15, 2), (16, 10, 3),
-        (16, 13, 3), (17, 8, 2),
+        (1, 9, 2),  (2, 17, 2), (3, 5, 4),  (3, 7, 5),  (3, 11, 3),
+        (4, 9, 2),  (5, 4, 3),  (5, 6, 4),  (6, 12, 3), (7, 1, 2),
+        (7, 4, 2),  (8, 14, 2), (9, 16, 3), (10, 15, 1), (11, 1, 3),
+        (11, 2, 4), (12, 16, 2),(13, 15, 2),(14, 15, 2), (16, 10, 3),
+        (16, 13, 3),(17, 8, 2),
         # Дополнительные дуги Варианта 3
         (11, 4, 5), (6, 17, 5)
     ]
@@ -33,86 +35,111 @@ def get_variant_3():
 
 
 def compute_levels(n, mat):
-    in_edges = {v: set() for v in range(1, n + 1)}
-    for i in range(n):
-        for j in range(n):
-            if mat[i][j] > 0:
-                in_edges[j + 1].add(i + 1)
+    """
+    Поуровневое разбиение вершин графа без контуров (DAG).
+    Возвращает:
+      - levels: список уровней со списками вершин (нумерация 1..n);
+      - old_to_new: словарь {исходный_номер: новый_номер};
+      - new_to_old: словарь {новый_номер: исходный_номер};
+      - ordered_mat: верхнетреугольная матрица цен в новой нумерации.
+    """
+    # Множество непосредственных предшественников для каждой вершины
+    in_nodes = {j: {i for i in range(n) if mat[i][j] > 0} for j in range(n)}
 
     levels = []
-    assigned = set()
+    visited = set()
+    current_level = {j for j, preds in in_nodes.items() if not preds}
 
-    while len(assigned) < n:
-        current_level = []
-        for v in range(1, n + 1):
-            if v not in assigned and in_edges[v].issubset(assigned):
-                current_level.append(v)
+    while current_level:
+        levels.append(sorted(current_level))
+        visited.update(current_level)
 
-        if not current_level:
-            unassigned = [v for v in range(1, n + 1) if v not in assigned]
-            raise ValueError(f"В графе обнаружен контур (цикл)! Невозможно упорядочить вершины: {unassigned}")
+        next_level = {
+            j for j in range(n)
+            if j not in visited and in_nodes[j].issubset(visited)
+        }
+        current_level = next_level
 
-        current_level.sort()
-        levels.append(current_level)
-        assigned.update(current_level)
+    if len(visited) != n:
+        missing = sorted(v + 1 for v in set(range(n)) - visited)
+        raise ValueError(f"В графе обнаружен контур (цикл)! Невозможно упорядочить вершины: {missing}")
 
-    # Сквозная нумерация
+    # Перевод уровней в нумерацию 1..n
+    levels_1based = [[v + 1 for v in lvl] for lvl in levels]
+
+    # Сквозная топологическая перенумерация (1..n)
     old_to_new = {}
     new_to_old = {}
-    new_idx = 1
-    for lvl in levels:
+    new_num = 1
+    for lvl in levels_1based:
         for old_v in lvl:
-            old_to_new[old_v] = new_idx
-            new_to_old[new_idx] = old_v
-            new_idx += 1
+            old_to_new[old_v] = new_num
+            new_to_old[new_num] = old_v
+            new_num += 1
 
-    # Построение упорядоченной матрицы
+    # Построение канонической верхнетреугольной матрицы
     ordered_mat = [[0] * n for _ in range(n)]
     for i in range(1, n + 1):
         for j in range(1, n + 1):
             ordered_mat[i - 1][j - 1] = mat[new_to_old[i] - 1][new_to_old[j] - 1]
 
-    return levels, old_to_new, new_to_old, ordered_mat
+    return levels_1based, old_to_new, new_to_old, ordered_mat
 
 
 def compute_bellman_path(n, ordered_mat, new_to_old, old_to_new, start_old=3, end_old=15):
+    """
+    Поиск минимального пути методом динамического программирования (уравнение Беллмана).
+    Возвращает:
+      - min_cost: минимальная длина пути (или None, если пути нет);
+      - paths_old: список оптимальных маршрутов в исходной нумерации;
+      - paths_new: список оптимальных маршрутов в новой нумерации;
+      - steps_log: пошаговый протокол расчета уравнений Беллмана.
+    """
     start_new = old_to_new.get(start_old, 1)
     end_new = old_to_new.get(end_old, n)
 
     f_min = {i: float('inf') for i in range(1, n + 1)}
-    parent = {i: [] for i in range(1, n + 1)}
+    parents = {i: [] for i in range(1, n + 1)}
     f_min[start_new] = 0
 
     steps_log = []
 
-    for j in range(start_new, n + 1):
+    # Движение в топологическом порядке новых номеров (1 .. n)
+    for new_j in range(start_new, end_new + 1):
+        old_j = new_to_old[new_j]
         incoming = []
-        for i in range(1, j):
-            w = ordered_mat[i - 1][j - 1]
-            if w > 0 and f_min[i] != float('inf'):
-                incoming.append((i, w, f_min[i] + w))
+
+        for new_i in range(start_new, new_j):
+            w = ordered_mat[new_i - 1][new_j - 1]
+            prev_cost = f_min[new_i]
+            if w > 0 and prev_cost != float('inf'):
+                incoming.append((new_i, new_to_old[new_i], w, prev_cost + w))
 
         if incoming:
-            best_val = min(item[2] for item in incoming)
-            f_min[j] = best_val
-            parent[j] = [item[0] for item in incoming if item[2] == best_val]
+            best_cost = min(item[3] for item in incoming)
+            f_min[new_j] = best_cost
+            parents[new_j] = [item[0] for item in incoming if item[3] == best_cost]
 
-            old_j = new_to_old[j]
-            variants_str = ", ".join([f"q({new_to_old[i]},{old_j})+F({new_to_old[i]})={w}+{f_min[i]}={cand}" for i, w, cand in incoming])
-            steps_log.append(f"Вершина #{j} (исх. {old_j}): min({variants_str}) = {best_val}")
-        elif j == start_new:
-            steps_log.append(f"Вершина #{j} (исх. {new_to_old[j]}): источник, F({new_to_old[j]}) = 0")
+            variants = [
+                f"q({old_i},{old_j})+F({old_i})={w}+{f_min[new_i]}={cand}"
+                for new_i, old_i, w, cand in incoming
+            ]
+            steps_log.append(f"Вершина #{new_j} (исх. {old_j}): min({', '.join(variants)}) = {best_cost}")
+        elif new_j == start_new:
+            steps_log.append(f"Вершина #{new_j} (исх. {old_j}): источник, F({old_j}) = 0")
 
     if f_min[end_new] == float('inf'):
         return None, [], [], steps_log
 
+    # Восстановление всех оптимальных маршрутов (backtracking)
     paths_new = []
-    def backtrack(curr, path):
+
+    def backtrack(curr, current_path):
         if curr == start_new:
-            paths_new.append(list(reversed(path)))
+            paths_new.append(list(reversed(current_path)))
             return
-        for p in parent[curr]:
-            backtrack(p, path + [p])
+        for p in parents[curr]:
+            backtrack(p, current_path + [p])
 
     backtrack(end_new, [end_new])
     paths_old = [[new_to_old[v] for v in p] for p in paths_new]
@@ -285,7 +312,10 @@ class UBSApp(QMainWindow):
                             raise ValueError
                         self.matrix[i][j] = v
                     except ValueError:
-                        QMessageBox.warning(self, "Ошибка ввода", f"Некорректный вес в ячейке ({i+1}, {j+1}): '{txt}'. Ожидается неотрицательное целое число.")
+                        QMessageBox.warning(
+                            self, "Ошибка ввода",
+                            f"Некорректный вес в ячейке ({i+1}, {j+1}): '{txt}'. Ожидается неотрицательное целое число."
+                        )
                         return False
         return True
 
