@@ -4,6 +4,7 @@
 # 2. Whitelist repo meta files
 !/.gitignore
 !/README.md
+!/msu1.md
 
 # 3. Whitelist target disciplines of 7th semester
 !/УБС/
