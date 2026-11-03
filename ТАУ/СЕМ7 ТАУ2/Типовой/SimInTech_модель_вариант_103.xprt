@@ -966,7 +966,7 @@
   </layer>
  </layers>
  <page>
-  <name>`Схема модели общего вида.prt`</name>
+  <name>`C:\Users\grudi\MPEI\AI_agents\ТАУ2_Codex\Типовой_103\audit_v3\model\variant103_isaushema_5b_signfixed.xprt`</name>
   <script></script>
   <visible>`1`</visible>
   <x>`0`</x>
@@ -981,7 +981,7 @@
   <calcany>`0`</calcany>
   <snap>`1`</snap>
   <snapstep>`8`</snapstep>
-  <grid>`1`</grid>
+  <grid>`0`</grid>
   <imagemode>`0`</imagemode>
   <curentlayer>`0`</curentlayer>
   <objectsnap>`0`</objectsnap>
@@ -999,7 +999,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(46 , 226),(62 , 226),(46 , 210),(46 , 246)]`</value>
+    <value>`[(66 , 196),(82 , 196),(66 , 180),(66 , 216)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -1068,7 +1068,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(46 , 226),(62 , 226),(46 , 210),(46 , 246)]`</value>
+     <value>`[(66 , 196),(82 , 196),(66 , 180),(66 , 216)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -1605,8 +1605,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`62`</x_glob>
-     <y_glob>`226`</y_glob>
+     <x_glob>`82`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -1623,8 +1623,8 @@
      <name>`Container`</name>
      <script>`initialization`#13#10#13#10`if yk`#62`y0 then begin`#13#10`  Line1.Points = [(-4.5 , -8),(11.5 , -8)];`#13#10`  Line2.Points = [(-4.5 , -8),(-4.5 , 0)];`#13#10#9`storeposition(Line1,Line2);`#13#10#9`Line1.Visible = 1;`#13#10#9`Line2.Visible = 1; `#13#10`end`#13#10`else if yk=y0 then begin                      `#13#10`  Line1.Visible = 0;`#13#10#9`Line2.Visible = 0;`#13#10`end`#13#10`else begin`#13#10#9`Line1.Points = [(-4.5 , 8),(11.5 , 8)];`#13#10`  Line2.Points = [(-4.5 , 0),(-4.5 , 8)];`#13#10#9`storeposition(Line1,Line2);`#13#10#9`Line1.Visible = 1;`#13#10#9`Line2.Visible = 1;`#13#10`end;`#13#10#13#10`end;`#13#10</script>
      <visible>`1`</visible>
-     <x>`46`</x>
-     <y>`226`</y>
+     <x>`66`</x>
+     <y>`196`</y>
      <width>`32`</width>
      <height>`32`</height>
      <scalex>`24.4188972111679`</scalex>
@@ -3202,7 +3202,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(116 , 226),(132 , 226),(116 , 210),(116 , 246)]`</value>
+    <value>`[(126 , 196),(142 , 196),(126 , 180),(126 , 216)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -3271,7 +3271,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(116 , 226),(132 , 226),(116 , 210),(116 , 246)]`</value>
+     <value>`[(126 , 196),(142 , 196),(126 , 180),(126 , 216)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -3788,8 +3788,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`132`</x_glob>
-     <y_glob>`226`</y_glob>
+     <x_glob>`142`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -3808,8 +3808,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`100`</x_glob>
-     <y_glob>`218`</y_glob>
+     <x_glob>`110`</x_glob>
+     <y_glob>`188`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -3818,7 +3818,7 @@
      <angbyline>`0`</angbyline>
     </port>
     <port>
-     <name>`+`</name>
+     <name>`−`</name>
      <side>`0`</side>
      <x>`-0.5`</x>
      <y>`0.25`</y>
@@ -3828,8 +3828,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`100`</x_glob>
-     <y_glob>`234`</y_glob>
+     <x_glob>`110`</x_glob>
+     <y_glob>`204`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -3846,8 +3846,8 @@
      <name>`Container`</name>
      <script></script>
      <visible>`1`</visible>
-     <x>`116`</x>
-     <y>`226`</y>
+     <x>`126`</x>
+     <y>`196`</y>
      <width>`26.358054849178`</width>
      <height>`25.39373576933`</height>
      <scalex>`15.5550173313637`</scalex>
@@ -4246,7 +4246,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(196 , 226),(212 , 226),(196 , 210),(196 , 246)]`</value>
+    <value>`[(191 , 196),(207 , 196),(191 , 180),(191 , 216)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -4315,7 +4315,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(196 , 226),(212 , 226),(196 , 210),(196 , 246)]`</value>
+     <value>`[(191 , 196),(207 , 196),(191 , 180),(191 , 216)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -4795,7 +4795,7 @@
    <readonlyprops></readonlyprops>
    <extmodulname>`$(Root)\mbtylib.dll@block`</extmodulname>
    <calctemplate>`mbty_std.dll`#13#10`TExtrapolator`#13#10`extrapolator0`</calctemplate>
-   <helpkeyword>`com_ekstrapolyator`</helpkeyword>
+   <helpkeyword>`0201`</helpkeyword>
    <helpfile></helpfile>
    <ownerfilter></ownerfilter>
    <blockverid></blockverid>
@@ -4832,8 +4832,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`180`</x_glob>
-     <y_glob>`226`</y_glob>
+     <x_glob>`175`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -4852,8 +4852,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`212`</x_glob>
-     <y_glob>`226`</y_glob>
+     <x_glob>`207`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -4870,8 +4870,8 @@
      <name>`Container`</name>
      <script></script>
      <visible>`1`</visible>
-     <x>`196`</x>
-     <y>`226`</y>
+     <x>`191`</x>
+     <y>`196`</y>
      <width>`32`</width>
      <height>`32`</height>
      <scalex>`12.8125`</scalex>
@@ -5794,7 +5794,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(296 , 226),(312 , 226),(296 , 210),(296 , 246)]`</value>
+    <value>`[(256 , 196),(272 , 196),(256 , 180),(256 , 216)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -5863,7 +5863,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(296 , 226),(312 , 226),(296 , 210),(296 , 246)]`</value>
+     <value>`[(256 , 196),(272 , 196),(256 , 180),(256 , 216)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -6410,8 +6410,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`280`</x_glob>
-     <y_glob>`226`</y_glob>
+     <x_glob>`240`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -6430,8 +6430,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`312`</x_glob>
-     <y_glob>`226`</y_glob>
+     <x_glob>`272`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -6448,8 +6448,8 @@
      <name>`Container`</name>
      <script>`if show_numbers`#13#10`  then TextK.Text = k[1]`#13#10`  else TextK.Text = "k";`</script>
      <visible>`1`</visible>
-     <x>`296`</x>
-     <y>`226`</y>
+     <x>`256`</x>
+     <y>`196`</y>
      <width>`32`</width>
      <height>`32`</height>
      <scalex>`10.5888429752066`</scalex>
@@ -7498,7 +7498,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(384 , 376),(408 , 376),(384 , 360),(384 , 396)]`</value>
+    <value>`[(334 , 196),(358 , 196),(334 , 180),(334 , 216)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -7567,7 +7567,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(384 , 376),(408 , 376),(384 , 360),(384 , 396)]`</value>
+     <value>`[(334 , 196),(358 , 196),(334 , 180),(334 , 216)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -8124,8 +8124,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`360`</x_glob>
-     <y_glob>`376`</y_glob>
+     <x_glob>`310`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -8144,8 +8144,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`408`</x_glob>
-     <y_glob>`376`</y_glob>
+     <x_glob>`358`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -8162,8 +8162,8 @@
      <name>`Container`</name>
      <script>`if show_numbers`#13#10`  then begin`#13#10`    TextK.Text = FloatToStr(k[1]);`#13#10`    if (T[1]`#60#62`1.0) then TextT.Text = FloatToStr(T[1]) + "s+1"`#13#10`                   else TextT.Text =                    "s+1";`#13#10`  end`#13#10`  else begin`#13#10`    TextK.Text = "k";`#13#10`    TextT.Text = "Ts+1";`#13#10`  end;`</script>
      <visible>`1`</visible>
-     <x>`384`</x>
-     <y>`376`</y>
+     <x>`334`</x>
+     <y>`196`</y>
      <width>`48`</width>
      <height>`32`</height>
      <scalex>`7.05922865013774`</scalex>
@@ -9222,7 +9222,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(484 , 376),(508 , 376),(484 , 360),(484 , 396)]`</value>
+    <value>`[(404 , 196),(428 , 196),(404 , 180),(404 , 216)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -9291,7 +9291,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(484 , 376),(508 , 376),(484 , 360),(484 , 396)]`</value>
+     <value>`[(404 , 196),(428 , 196),(404 , 180),(404 , 216)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -9771,7 +9771,7 @@
    <readonlyprops></readonlyprops>
    <extmodulname>`$(Root)\mbtylib.dll@block`</extmodulname>
    <calctemplate>`mbty_std.dll`#13#10`TForceAperiodika`#13#10`forceaperiodika`</calctemplate>
-   <helpkeyword>`com_inercionno_forsiruyushchee_zveno`</helpkeyword>
+   <helpkeyword>`0031`</helpkeyword>
    <helpfile></helpfile>
    <ownerfilter></ownerfilter>
    <blockverid></blockverid>
@@ -9848,8 +9848,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`460`</x_glob>
-     <y_glob>`376`</y_glob>
+     <x_glob>`380`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -9868,8 +9868,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`508`</x_glob>
-     <y_glob>`376`</y_glob>
+     <x_glob>`428`</x_glob>
+     <y_glob>`196`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -9886,8 +9886,8 @@
      <name>`Container`</name>
      <script>`if show_numbers`#13#10`  then begin`#13#10`    if (T1[1]`#60#62`1.0) then TextT1.Text = FloatToStr(T1[1]) + "s+1"`#13#10`                    else TextT1.Text =                     "s+1";`#13#10`    if (T2[1]`#60#62`1.0) then TextT2.Text = FloatToStr(T2[1]) + "s+1"`#13#10`                    else TextT2.Text =                     "s+1";`#13#10`  end`#13#10`  else begin`#13#10`    TextT1.Text = "T₁s+1";`#13#10`    TextT2.Text = "T₂s+1";`#13#10`  end;`</script>
      <visible>`1`</visible>
-     <x>`484`</x>
-     <y>`376`</y>
+     <x>`404`</x>
+     <y>`196`</y>
      <width>`48`</width>
      <height>`32`</height>
      <scalex>`8.52686308492201`</scalex>
@@ -10946,7 +10946,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(666 , 536),(682 , 536),(666 , 520),(666 , 556)]`</value>
+    <value>`[(236 , 316),(252 , 316),(236 , 300),(236 , 336)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -11015,7 +11015,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(666 , 536),(682 , 536),(666 , 520),(666 , 556)]`</value>
+     <value>`[(236 , 316),(252 , 316),(236 , 300),(236 , 336)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -11495,7 +11495,7 @@
    <readonlyprops></readonlyprops>
    <extmodulname>`$(Root)\mbtylib.dll@block`</extmodulname>
    <calctemplate>`mbty_std.dll`#13#10`TToFile`</calctemplate>
-   <helpkeyword>`com_v_fajl`</helpkeyword>
+   <helpkeyword>`0016`</helpkeyword>
    <helpfile></helpfile>
    <ownerfilter></ownerfilter>
    <blockverid></blockverid>
@@ -11598,7 +11598,7 @@
      <type>`15`</type>
      <mode>`1`</mode>
      <value>
-      <items>`Пробел с выравниванием`#13#10`Табуляция`#13#10`Точка с запятой`#13#10`Запятая`</items>
+      <items>`Пробел с выравниванием`#13#10`Табуляция`#13#10`Точка с запятой`</items>
       <index>`1`</index>
      </value>
      <textvalue></textvalue>
@@ -11624,8 +11624,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`650`</x_glob>
-     <y_glob>`525.333333333333`</y_glob>
+     <x_glob>`220`</x_glob>
+     <y_glob>`305.333333333333`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -11644,8 +11644,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`650`</x_glob>
-     <y_glob>`536`</y_glob>
+     <x_glob>`220`</x_glob>
+     <y_glob>`316`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -11664,8 +11664,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`650`</x_glob>
-     <y_glob>`546.666666666667`</y_glob>
+     <x_glob>`220`</x_glob>
+     <y_glob>`326.666666666667`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -11682,8 +11682,8 @@
      <name>`Container`</name>
      <script></script>
      <visible>`1`</visible>
-     <x>`666`</x>
-     <y>`536`</y>
+     <x>`236`</x>
+     <y>`316`</y>
      <width>`32`</width>
      <height>`32`</height>
      <scalex>`12.8125`</scalex>
@@ -12800,7 +12800,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(844 , 536),(868 , 536),(844 , 520),(844 , 556)]`</value>
+    <value>`[(414 , 316),(438 , 316),(414 , 300),(414 , 336)]`</value>
    </points>
    <color>`16777215`</color>
    <visual_props>
@@ -12869,7 +12869,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(844 , 536),(868 , 536),(844 , 520),(844 , 556)]`</value>
+     <value>`[(414 , 316),(438 , 316),(414 , 300),(414 , 336)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -13436,8 +13436,8 @@
      <itemid>`-1`</itemid>
      <inversebyte>`0`</inversebyte>
      <center>`0`</center>
-     <x_glob>`820`</x_glob>
-     <y_glob>`536`</y_glob>
+     <x_glob>`390`</x_glob>
+     <y_glob>`316`</y_glob>
      <clonable>`0`</clonable>
      <invisible>`0`</invisible>
      <allsurface>`0`</allsurface>
@@ -13454,8 +13454,8 @@
      <name>`Container`</name>
      <script></script>
      <visible>`1`</visible>
-     <x>`844`</x>
-     <y>`536`</y>
+     <x>`414`</x>
+     <y>`316`</y>
      <width>`48`</width>
      <height>`32`</height>
      <scalex>`8.54166666666667`</scalex>
@@ -16683,7 +16683,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(80 , 226),(80 , 218)]`</value>
+    <value>`[(96 , 196),(96 , 188)]`</value>
    </points>
    <color>`0`</color>
    <visual_props>
@@ -16752,7 +16752,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(80 , 226),(80 , 218)]`</value>
+     <value>`[(96 , 196),(96 , 188)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -17107,17 +17107,17 @@
    <start_bl_index>`0`</start_bl_index>
    <start_bl_name>`Step_source_1`</start_bl_name>
    <start_port_index>`0`</start_port_index>
-   <start_x>`62`</start_x>
-   <start_y>`226`</start_y>
+   <start_x>`82`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`1`</end_bl_index>
    <end_bl_name>`Add_oper_0`</end_bl_name>
    <end_port_index>`1`</end_port_index>
-   <end_x>`100`</end_x>
-   <end_y>`218`</end_y>
+   <end_x>`110`</end_x>
+   <end_y>`188`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(62 , 226),(80 , 226),(80 , 218),(100 , 218)]`</value>
+    <value>`[(82 , 196),(96 , 196),(96 , 188),(110 , 188)]`</value>
    </base_points>
   </object>
   <object>
@@ -17128,7 +17128,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(520 , 376),(520 , 272),(80 , 272),(80 , 234)]`</value>
+    <value>`[(440 , 196),(440 , 232),(96 , 232),(96 , 204)]`</value>
    </points>
    <color>`0`</color>
    <visual_props>
@@ -17197,7 +17197,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(520 , 376),(520 , 272),(80 , 272),(80 , 234)]`</value>
+     <value>`[(440 , 196),(440 , 232),(96 , 232),(96 , 204)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -17552,17 +17552,17 @@
    <start_bl_index>`5`</start_bl_index>
    <start_bl_name>`ForceAperiodika_0`</start_bl_name>
    <start_port_index>`1`</start_port_index>
-   <start_x>`508`</start_x>
-   <start_y>`376`</start_y>
+   <start_x>`428`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`1`</end_bl_index>
    <end_bl_name>`Add_oper_0`</end_bl_name>
    <end_port_index>`2`</end_port_index>
-   <end_x>`100`</end_x>
-   <end_y>`234`</end_y>
+   <end_x>`110`</end_x>
+   <end_y>`204`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(508 , 376),(520 , 376),(520 , 272),(80 , 272),(80 , 234),(100 , 234)]`</value>
+    <value>`[(428 , 196),(440 , 196),(440 , 232),(96 , 232),(96 , 204),(110 , 204)]`</value>
    </base_points>
   </object>
   <object>
@@ -17997,17 +17997,17 @@
    <start_bl_index>`1`</start_bl_index>
    <start_bl_name>`Add_oper_0`</start_bl_name>
    <start_port_index>`0`</start_port_index>
-   <start_x>`132`</start_x>
-   <start_y>`226`</start_y>
+   <start_x>`142`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`2`</end_bl_index>
    <end_bl_name>`DiskrExtrapolator_0`</end_bl_name>
    <end_port_index>`0`</end_port_index>
-   <end_x>`180`</end_x>
-   <end_y>`226`</end_y>
+   <end_x>`175`</end_x>
+   <end_y>`196`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(132 , 226),(180 , 226)]`</value>
+    <value>`[(142 , 196),(175 , 196)]`</value>
    </base_points>
   </object>
   <object>
@@ -18442,28 +18442,28 @@
    <start_bl_index>`2`</start_bl_index>
    <start_bl_name>`DiskrExtrapolator_0`</start_bl_name>
    <start_port_index>`1`</start_port_index>
-   <start_x>`212`</start_x>
-   <start_y>`226`</start_y>
+   <start_x>`207`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`3`</end_bl_index>
    <end_bl_name>`Integrator_0`</end_bl_name>
    <end_port_index>`0`</end_port_index>
-   <end_x>`280`</end_x>
-   <end_y>`226`</end_y>
+   <end_x>`240`</end_x>
+   <end_y>`196`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(212 , 226),(280 , 226)]`</value>
+    <value>`[(207 , 196),(240 , 196)]`</value>
    </base_points>
   </object>
   <object>
    <name>`MBTYWire`</name>
    <class_name>`Математическая`</class_name>
    <obj_type>`101`</obj_type>
-   <point_count>`4`</point_count>
+   <point_count>`0`</point_count>
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(328 , 226),(328 , 232),(344 , 232),(344 , 376)]`</value>
+    <value>`[]`</value>
    </points>
    <color>`0`</color>
    <visual_props>
@@ -18532,7 +18532,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(328 , 226),(328 , 232),(344 , 232),(344 , 376)]`</value>
+     <value>`[]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -18887,17 +18887,17 @@
    <start_bl_index>`3`</start_bl_index>
    <start_bl_name>`Integrator_0`</start_bl_name>
    <start_port_index>`1`</start_port_index>
-   <start_x>`312`</start_x>
-   <start_y>`226`</start_y>
+   <start_x>`272`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`4`</end_bl_index>
    <end_bl_name>`InerсZveno1_0`</end_bl_name>
    <end_port_index>`0`</end_port_index>
-   <end_x>`360`</end_x>
-   <end_y>`376`</end_y>
+   <end_x>`310`</end_x>
+   <end_y>`196`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(312 , 226),(328 , 226),(328 , 232),(344 , 232),(344 , 376),(360 , 376)]`</value>
+    <value>`[(272 , 196),(310 , 196)]`</value>
    </base_points>
   </object>
   <object>
@@ -19332,28 +19332,28 @@
    <start_bl_index>`4`</start_bl_index>
    <start_bl_name>`InerсZveno1_0`</start_bl_name>
    <start_port_index>`1`</start_port_index>
-   <start_x>`408`</start_x>
-   <start_y>`376`</start_y>
+   <start_x>`358`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`5`</end_bl_index>
    <end_bl_name>`ForceAperiodika_0`</end_bl_name>
    <end_port_index>`0`</end_port_index>
-   <end_x>`460`</end_x>
-   <end_y>`376`</end_y>
+   <end_x>`380`</end_x>
+   <end_y>`196`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(408 , 376),(460 , 376)]`</value>
+    <value>`[(358 , 196),(380 , 196)]`</value>
    </base_points>
   </object>
   <object>
    <name>`MBTYWire`</name>
    <class_name>`Математическая`</class_name>
    <obj_type>`101`</obj_type>
-   <point_count>`4`</point_count>
+   <point_count>`2`</point_count>
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(144 , 226),(144 , 264),(336 , 264),(336 , 525.333333333333)]`</value>
+    <value>`[(160 , 196),(160 , 305.333333333333)]`</value>
    </points>
    <color>`0`</color>
    <visual_props>
@@ -19422,7 +19422,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(144 , 226),(144 , 264),(336 , 264),(336 , 525.333333333333)]`</value>
+     <value>`[(160 , 196),(160 , 305.333333333333)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -19777,28 +19777,28 @@
    <start_bl_index>`1`</start_bl_index>
    <start_bl_name>`Add_oper_0`</start_bl_name>
    <start_port_index>`0`</start_port_index>
-   <start_x>`132`</start_x>
-   <start_y>`226`</start_y>
+   <start_x>`142`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`6`</end_bl_index>
    <end_bl_name>`ToFile_0`</end_bl_name>
    <end_port_index>`0`</end_port_index>
-   <end_x>`650`</end_x>
-   <end_y>`525.333333333333`</end_y>
+   <end_x>`220`</end_x>
+   <end_y>`305.333333333333`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(132 , 226),(144 , 226),(144 , 264),(336 , 264),(336 , 525.333333333333),(650 , 525.333333333333)]`</value>
+    <value>`[(142 , 196),(160 , 196),(160 , 305.333333333333),(220 , 305.333333333333)]`</value>
    </base_points>
   </object>
   <object>
    <name>`MBTYWire`</name>
    <class_name>`Математическая`</class_name>
    <obj_type>`101`</obj_type>
-   <point_count>`2`</point_count>
+   <point_count>`4`</point_count>
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(576 , 376),(576 , 536)]`</value>
+    <value>`[(448 , 196),(448 , 272),(200 , 272),(200 , 316)]`</value>
    </points>
    <color>`0`</color>
    <visual_props>
@@ -19867,7 +19867,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(576 , 376),(576 , 536)]`</value>
+     <value>`[(448 , 196),(448 , 272),(200 , 272),(200 , 316)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -20222,28 +20222,28 @@
    <start_bl_index>`5`</start_bl_index>
    <start_bl_name>`ForceAperiodika_0`</start_bl_name>
    <start_port_index>`1`</start_port_index>
-   <start_x>`508`</start_x>
-   <start_y>`376`</start_y>
+   <start_x>`428`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`6`</end_bl_index>
    <end_bl_name>`ToFile_0`</end_bl_name>
    <end_port_index>`1`</end_port_index>
-   <end_x>`650`</end_x>
-   <end_y>`536`</end_y>
+   <end_x>`220`</end_x>
+   <end_y>`316`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(508 , 376),(576 , 376),(576 , 536),(650 , 536)]`</value>
+    <value>`[(428 , 196),(448 , 196),(448 , 272),(200 , 272),(200 , 316),(220 , 316)]`</value>
    </base_points>
   </object>
   <object>
    <name>`MBTYWire`</name>
    <class_name>`Математическая`</class_name>
    <obj_type>`101`</obj_type>
-   <point_count>`2`</point_count>
+   <point_count>`4`</point_count>
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(432 , 226),(432 , 546.666666666667)]`</value>
+    <value>`[(288 , 196),(288 , 264),(192 , 264),(192 , 326.666666666667)]`</value>
    </points>
    <color>`0`</color>
    <visual_props>
@@ -20312,7 +20312,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(432 , 226),(432 , 546.666666666667)]`</value>
+     <value>`[(288 , 196),(288 , 264),(192 , 264),(192 , 326.666666666667)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -20667,17 +20667,17 @@
    <start_bl_index>`3`</start_bl_index>
    <start_bl_name>`Integrator_0`</start_bl_name>
    <start_port_index>`1`</start_port_index>
-   <start_x>`312`</start_x>
-   <start_y>`226`</start_y>
+   <start_x>`272`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`6`</end_bl_index>
    <end_bl_name>`ToFile_0`</end_bl_name>
    <end_port_index>`2`</end_port_index>
-   <end_x>`650`</end_x>
-   <end_y>`546.666666666667`</end_y>
+   <end_x>`220`</end_x>
+   <end_y>`326.666666666667`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(312 , 226),(432 , 226),(432 , 546.666666666667),(650 , 546.666666666667)]`</value>
+    <value>`[(272 , 196),(288 , 196),(288 , 264),(192 , 264),(192 , 326.666666666667),(220 , 326.666666666667)]`</value>
    </base_points>
   </object>
   <object>
@@ -20688,7 +20688,7 @@
    <visuallayer>`1`</visuallayer>
    <points>
     <type>`26`</type>
-    <value>`[(520 , 376),(520 , 384),(704 , 384),(704 , 536)]`</value>
+    <value>`[(456 , 196),(456 , 280),(376 , 280),(376 , 316)]`</value>
    </points>
    <color>`0`</color>
    <visual_props>
@@ -20757,7 +20757,7 @@
      <caption>`Координаты точек`</caption>
      <type>`26`</type>
      <mode>`2`</mode>
-     <value>`[(520 , 376),(520 , 384),(704 , 384),(704 , 536)]`</value>
+     <value>`[(456 , 196),(456 , 280),(376 , 280),(376 , 316)]`</value>
      <textvalue></textvalue>
      <fconstant>`0`</fconstant>
      <script>`group Положение и размер`#13#10`expanded`#13#10`customhint Координаты узловых точек объекта на схеме`#13#10`sortpriority -1900`#13#10</script>
@@ -21112,17 +21112,17 @@
    <start_bl_index>`5`</start_bl_index>
    <start_bl_name>`ForceAperiodika_0`</start_bl_name>
    <start_port_index>`1`</start_port_index>
-   <start_x>`508`</start_x>
-   <start_y>`376`</start_y>
+   <start_x>`428`</start_x>
+   <start_y>`196`</start_y>
    <end_bl_index>`7`</end_bl_index>
    <end_bl_name>`TimeGraphic_0`</end_bl_name>
    <end_port_index>`0`</end_port_index>
-   <end_x>`820`</end_x>
-   <end_y>`536`</end_y>
+   <end_x>`390`</end_x>
+   <end_y>`316`</end_y>
    <parent_wire_index>`-1`</parent_wire_index>
    <base_points>
     <type>`26`</type>
-    <value>`[(508 , 376),(520 , 376),(520 , 384),(704 , 384),(704 , 536),(820 , 536)]`</value>
+    <value>`[(428 , 196),(456 , 196),(456 , 280),(376 , 280),(376 , 316),(390 , 316)]`</value>
    </base_points>
   </object>
   <connect_list>
