@@ -4,13 +4,14 @@ Dependencies: numpy, scipy, sympy.
 Formula sources: Tipovoy_po_ISAU, printed pp. 11-15, 19-20, 31-33;
 TAU lectures, pp. 47-54, 58-62, 76-81, 87-88.
 
-The script prints results and creates no files. To compare an exported SimInTech
-time/y or time/e/y/xp file, pass --simintech-output PATH.
+The script prints results. Optional --export-dir writes CSV/JSON for checking.
+Use --regime to choose the reference for --simintech-output.
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 import sys
 
@@ -62,7 +63,7 @@ def simintech_output(path: Path) -> list[tuple[float, float]]:
         fields = line.replace(",", ".").split()
         if len(fields) >= 2:
             try:
-                y_column = 2 if len(fields) >= 4 else 1
+                y_column = 1 if len(fields) == 2 else 2
                 rows.append((float(fields[0]), float(fields[y_column])))
             except ValueError:
                 continue
@@ -71,7 +72,10 @@ def simintech_output(path: Path) -> list[tuple[float, float]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--simintech-output", type=Path, help="time/y or time/e/y/xp text file exported by SimInTech")
+    parser.add_argument("--simintech-output", type=Path,
+                        help="time/y or time/e/y[/xp[/x]] text file exported by SimInTech")
+    parser.add_argument("--regime", choices=("nominal", "critical", "ramp"), default="nominal")
+    parser.add_argument("--export-dir", type=Path, help="optional directory for reference CSV and results JSON")
     args = parser.parse_args()
 
     # Variant 103, Fig. 5б: W1=K/p is in the direct branch; W2 and W3 form
@@ -84,7 +88,7 @@ def main() -> None:
     Wpn = sp.factor(Wf * Wn)
 
     # D-transform of the sampled transition function, methodical p. 14 and
-    # lecture pp. 47-51. K is factored out while forming the unit-gain model.
+    # lecture PDF pp. 16, 28. K is factored out while forming the unit-gain model.
     H = sp.factor(Wpn.subs(K, 1) / (1 - sp.exp(-p * T)))
     h = 4 + 2 * t + 8 * sp.exp(-t) - 12 * sp.exp(-t / 2)
     assert sp.simplify(sp.laplace_transform(h, t, p, noconds=True) - H) == 0
@@ -188,6 +192,9 @@ def main() -> None:
     step = simulate(np.ones_like(time), a, b)
     ramp = simulate(time.copy(), a, b)
     ramp_error_series = time - ramp
+    critical_a = az + K_hurwitz * np.r_[0.0, bz]
+    critical_b = K_hurwitz * np.r_[0.0, bz]
+    critical_step = simulate(np.ones_like(time), critical_a, critical_b)
 
     # Final-value error formulae for step/ramp inputs, lecture pp. 87-88.
     error_transfer = sp.cancel(Dq / (Dq + K_NOM * Nq))
@@ -219,9 +226,18 @@ def main() -> None:
         name: float(abs(alias_sum(indices, np.array([omega_cr]))[0] - K_NOM * w_unit(theta_cr)))
         for name, indices in truncations.items()
     }
+    control_frequencies = np.array([0.02, 1.0, 5.0, omega_cr, 30.0, 100.0, np.pi / T_FLOAT])
+    control_exact = K_NOM * w_unit(control_frequencies * T_FLOAT)
+    control_approx = alias_sum(range(-1, 3), control_frequencies)
+    frequency_table = [
+        {"omega": float(w), "exact_re": float(e.real), "exact_im": float(e.imag),
+         "approx_re": float(ap.real), "approx_im": float(ap.imag),
+         "abs_difference": float(abs(e - ap))}
+        for w, e, ap in zip(control_frequencies, control_exact, control_approx)
+    ]
 
     # Print the calculation in the same notation as the report.
-    print(f"Tи = {T_FLOAT:.5f} s; Kном = {K_NOM:g}")
+    print(f"Tи = {T_FLOAT:.5f} с; Kном = {K_NOM:g}")
     print(f"Wн(p) = {sp.sstr(Wn.subs(K, K_NOM))}")
     print(f"Wф(p) = {sp.sstr(Wf)}")
     print(f"Wпн(p) = {sp.sstr(Wpn.subs(K, K_NOM))}")
@@ -229,7 +245,7 @@ def main() -> None:
     print(f"h(t) = {h}")
     print(f"A(z), descending = {az}")
     print(f"B(z), descending = {bz}")
-    print(f"ωкр = {omega_cr:.10f} rad/s; Wр,1* = {w_cr.real:.12g} {w_cr.imag:+.3g}j")
+    print(f"ωкр = {omega_cr:.10f} рад/с; Wр,1* = {w_cr.real:.12g} {w_cr.imag:+.3g}j")
     print(f"Kпр: Nyquist={K_nyquist:.12f}; Hurwitz={K_hurwitz:.12f}; roots={K_roots:.12f}")
     print(f"Positive Hurwitz boundaries: {hurwitz_boundaries}")
     print(f"Nyquist regularization beta={beta:g}; windings of 1+W_beta = {winding_numbers}")
@@ -243,14 +259,34 @@ def main() -> None:
     print(f"AФЧХ max errors: {max_errors}")
     print(f"AФЧХ frequencies of maximum errors: {peak_error_frequencies}")
     print(f"AФЧХ errors at ωкр: {errors_at_crossing}")
+    print(f"Critical gain = {K_hurwitz:.12g}; roots = {characteristic_roots(K_hurwitz)}")
+    print(f"Critical output on 40..60 s: min={critical_step[4000:].min():.10g}; max={critical_step[4000:].max():.10g}")
+
+    if args.export_dir:
+        args.export_dir.mkdir(parents=True, exist_ok=True)
+        np.savetxt(args.export_dir / "reference_regimes.csv",
+                   np.column_stack((time, step, critical_step, ramp, ramp_error_series)),
+                   delimiter=",", header="t,step_nominal,step_critical,ramp_y,ramp_error", comments="", fmt="%.15g")
+        results = {
+            "K_nyquist": K_nyquist, "K_hurwitz": K_hurwitz, "K_roots": K_roots,
+            "omega_critical": omega_cr, "static_error": float(static_error),
+            "kinetic_error": float(kinetic_error), "frequency_table": frequency_table,
+            "critical_a": critical_a.tolist(), "critical_b": critical_b.tolist(),
+            "critical_tail_min": float(critical_step[4000:].min()),
+            "critical_tail_max": float(critical_step[4000:].max()),
+            "ramp_error_tail_mean": float(np.mean(ramp_error_series[-100:])),
+        }
+        (args.export_dir / "results.json").write_text(
+            json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
 
     if args.simintech_output:
         measured = simintech_output(args.simintech_output)
+        reference = {"nominal": step, "critical": critical_step, "ramp": ramp}[args.regime]
         matched = []
         for time_s, output in measured:
             sample = round(time_s / T_FLOAT)
             if 0 <= sample < len(step) and abs(time_s - sample * T_FLOAT) <= 2e-5:
-                matched.append((sample, time_s, output, step[sample]))
+                matched.append((sample, time_s, output, reference[sample]))
         if not matched:
             raise RuntimeError("No SimInTech samples matched the calculation grid")
         maximum = max(abs(row[2] - row[3]) for row in matched)

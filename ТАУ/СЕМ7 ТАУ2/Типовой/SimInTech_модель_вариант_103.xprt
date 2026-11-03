@@ -6,7 +6,7 @@
  <formstyle>`0`</formstyle>
  <statusbar>`1`</statusbar>
  <hscrollbar>`1`</hscrollbar>
- <visible>`1`</visible>
+ <visible>`0`</visible>
  <timer>`200`</timer>
  <left>`-3`</left>
  <top>`143`</top>
@@ -43,7 +43,7 @@
  <showhints>`1`</showhints>
  <notbringfrontselected>`0`</notbringfrontselected>
  <tabs>
-  <visible>`1`</visible>
+  <visible>`0`</visible>
   <index>`0`</index>
  </tabs>
  <rststep>`1`</rststep>
@@ -109,8 +109,8 @@
      <caption>`Минимальный шаг`</caption>
      <type>`0`</type>
      <mode>`1`</mode>
-     <value>`0.001`</value>
-     <textvalue>`0.001`</textvalue>
+     <value>`0.0001`</value>
+     <textvalue>`0.0001`</textvalue>
      <fconstant>`0`</fconstant>
      <script>`SECTION Основные параметры`</script>
     </data>
@@ -119,8 +119,8 @@
      <caption>`Максимальный шаг`</caption>
      <type>`0`</type>
      <mode>`1`</mode>
-     <value>`0.001`</value>
-     <textvalue>`0.001`</textvalue>
+     <value>`0.0001`</value>
+     <textvalue>`0.0001`</textvalue>
      <fconstant>`0`</fconstant>
      <script>`SECTION Основные параметры`</script>
     </data>
@@ -966,7 +966,7 @@
   </layer>
  </layers>
  <page>
-  <name>`C:\Users\grudi\MPEI\AI_agents\ТАУ2_Codex\Типовой_103\audit_v3\model\variant103_isaushema_5b_signfixed.xprt`</name>
+  <name>`C:\Users\grudi\MPEI\AI_agents\ТАУ2_Codex\Типовой_103\audit_v4\model\nominal_k10\variant103_nominal_K10_h1e-4.xprt`</name>
   <script></script>
   <visible>`1`</visible>
   <x>`0`</x>
